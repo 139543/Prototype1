@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour {
     //I chose to leave speed/turnSpeed public. What if it's attached to another object, such as a motorcycle?
     public float speed = 20; 
     public float turnSpeed = 20;
-
+    public string horizontalAxisName = "HorizontalP1";
+    public string verticalAxisName = "VerticalP1";
     void Update() {
         //get inputs
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis(horizontalAxisName);
+        forwardInput = Input.GetAxis(verticalAxisName);
 
         //move the vehicle forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
